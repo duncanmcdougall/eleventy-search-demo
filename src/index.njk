@@ -1,0 +1,15 @@
+{% extends 'layout.njk' %}
+{% set title = "Eleventy + Elasticlunr Search Demo" %}
+{% block content %}
+  <p>The demo searches the title, tagline and genres of the IMDB Top 250.</p>
+  <div class="field">
+    <label for="searchField">Search</label>
+    <input type="search" placeholder="Search..." id="searchField">
+  </div>
+  <ol id="searchResults"/>
+  <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"
+></script>
+  <script type="text/javascript" src="/js/search.js"></script>
+{% endblock %}

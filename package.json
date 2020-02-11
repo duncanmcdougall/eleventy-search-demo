@@ -1,0 +1,19 @@
+{
+  "name": "eleventy-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "rimraf _site && eleventy --serve"
+  },
+  "author": "Duncan McDougall <duncanmcdougall@belter.io>",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "elasticlunr": "^0.9.5"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>{{ title }} | Eleventy Search Demo</title>
+        <meta name="robots" content="noindex"/>
+        <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+        <style>
+            :root {}
+            .container {
+                width: 90%;
+                max-width: 700px;
+                margin: 2rem auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{title}}</h1>
+            {{ content | safe }}
+            {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>
