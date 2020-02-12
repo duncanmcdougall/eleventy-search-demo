@@ -1,7 +1,10 @@
 {% extends 'layout.njk' %}
 {% set title = "Eleventy + Elasticlunr Search Demo" %}
 {% block content %}
-  <p>The demo searches the title, excerpt and genres of the [The Movie Database Top 100](https://www.themoviedb.org/movie/top-rated).</p>
+  <p>The demo searches the title, excerpt and genres of the <a href="https://www.themoviedb.org/movie/top-rated" target="_blank">The Movie Database Top 100</a>.</p>
+  <p>
+    <a href="https://github.com/duncanmcdougall/eleventy-search-demo">GitHub repo</a>
+  </p>
   <div class="field">
     <label for="searchField">Search</label>
     <input type="search" placeholder="Search..." id="searchField">
