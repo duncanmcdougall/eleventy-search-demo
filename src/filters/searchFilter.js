@@ -1,6 +1,6 @@
 const elasticlunr = require("elasticlunr");
 
-module.exports = function(input) {
+module.exports = function(collection) {
   var index = elasticlunr(function() {
     this.addField("title");
     this.addField("excerpt");
@@ -8,13 +8,12 @@ module.exports = function(input) {
     this.setRef("id");
   });
 
-  input.forEach(post => {
+  collection.forEach(page => {
     index.addDoc({
-      id: post.url,
-      title: post.template.frontMatter.data.title,
-      excerpt: post.template.frontMatter.data.excerpt,
-      genres: post.template.frontMatter.data.genres
-      //genre: post.template.frontMatter.data.genre
+      id: page.url,
+      title: page.template.frontMatter.data.title,
+      excerpt: page.template.frontMatter.data.excerpt,
+      genres: page.template.frontMatter.data.genres
     });
   });
 
