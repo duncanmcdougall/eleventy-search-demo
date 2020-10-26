@@ -1,14 +1,20 @@
-(function(window, document) {
+(function (window, document) {
   "use strict";
 
-  const search = e => {
-    const results = window.searchIndex.search(e.target.value, { expand: true });
+  const search = (e) => {
+    const results = window.searchIndex.search(e.target.value, {
+      bool: "OR",
+      expand: true,
+    });
 
     const resEl = document.getElementById("searchResults");
+    const noResultsEl = document.getElementById("noResultsFound");
+
     resEl.innerHTML = "";
-    if (results && results.length > 0) {
-      results.map(r => {
-        const { id, title, excerpt } = r.doc;
+    if (results) {
+      noResultsEl.style.display = "none";
+      results.map((r) => {
+        const { id, title, description } = r.doc;
         const el = document.createElement("li");
         resEl.appendChild(el);
 
@@ -21,14 +27,16 @@
         h3.appendChild(a);
 
         const p = document.createElement("p");
-        p.textContent = excerpt;
+        p.textContent = description;
         el.appendChild(p);
       });
+    } else {
+      noResultsEl.style.display = "block";
     }
   };
 
-  fetch("/search-index.json").then(response =>
-    response.json().then(rawIndex => {
+  fetch("/search-index.json").then((response) =>
+    response.json().then((rawIndex) => {
       window.searchIndex = elasticlunr.Index.load(rawIndex);
       document.getElementById("searchField").addEventListener("input", search);
     })
