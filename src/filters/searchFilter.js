@@ -11,9 +11,9 @@ module.exports = function(collection) {
   collection.forEach(page => {
     index.addDoc({
       id: page.url,
-      title: page.template.frontMatter.data.title,
-      excerpt: page.template.frontMatter.data.excerpt,
-      genres: page.template.frontMatter.data.genres
+      title: page.data.title,
+      excerpt: page.data.excerpt,
+      genres: page.data.genres
     });
   });
 
