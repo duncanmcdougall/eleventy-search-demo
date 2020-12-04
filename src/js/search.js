@@ -28,20 +28,25 @@
 
           const a = document.createElement("a");
           a.setAttribute("href", id);
-          if (title.toLowerCase().includes(kw.toLowerCase())){
-            title = title.replace(regEx, function (x) {
-              return '<mark>'+x+'</mark>';
-            });
+          if (description && kw){
+            if (title.toLowerCase().includes(kw.toLowerCase())){
+              title = title.replace(regEx, function (x) {
+                return '<mark>'+x+'</mark>';
+              });
+            }
           }
           a.innerHTML = title;
           h3.appendChild(a);
 
           const p = document.createElement("p");
-          if (description){
+          if (description && kw){
             if (description.toLowerCase().includes(kw.toLowerCase())){
               description = description.replace(regEx, function (x) {
                 return '<mark>'+x+'</mark>';
               });
+            }
+            if (description.length > 500){
+              description = "..." + description.substring(description.indexOf("<mark>")-1, description.indexOf("<mark>")+kw.length+15) + "..."
             }
           }
           p.innerHTML = description;
