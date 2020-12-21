@@ -4,16 +4,22 @@
   "description": "",
   "main": ".eleventy.js",
   "scripts": {
-    "build": "eleventy",
-    "start": "rimraf _site && eleventy --serve"
+		"build": "npm-run-all -s build:*",
+		"dev": "rimraf _site && npm run build && npm-run-all --parallel dev:*",
+		"build:11ty": "eleventy",
+		"build:scss": "node-sass src/css/main.scss -o src/css",
+		"dev:11ty": "eleventy --serve",
+		"dev:scss": "npm run build:scss && node-sass src/css/main.scss -wo src/css"
   },
   "author": "Duncan McDougall <duncanmcdougall@belter.io>",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.11.1",
-    "elasticlunr": "^0.9.5"
-  },
-  "devDependencies": {
+    "elasticlunr": "^0.9.5",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5"
+	},
+	"devDependencies": {
     "rimraf": "^3.0.2"
   }
 }

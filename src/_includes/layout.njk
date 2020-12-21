@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <title>{{ title }} | Eleventy Search Demo</title>
-        <meta name="robots" content="noindex"/>
-        <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
-        <style>
-            .container {
-                width: 90%;
-                max-width: 700px;
-                margin: 2rem auto;
-            }
-            .site-footer {
-                margin-top: 2rem;
-                padding: 1rem 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>{{title}}</h1>
-            {{ content | safe }}
-            {% block content %}{% endblock content %}
-
-            <footer class="site-footer">
-             <p>Read the Article: <a href="https://www.belter.io/eleventy-search/">Add Search to an Eleventy website with Elasticlunr</a></p>
-            </footer>
-        </div>
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>{{ title }} | Eleventy Search Demo</title>
+		<meta name="robots" content="noindex"/>
+		<link rel="icon" href="img/favicon.ico">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>{{title}}</h1>
+			{{ content | safe }}
+			{% block content %}{% endblock content %}
+			<footer class="site-footer">
+			</footer>
+		</div>
+	</body>
 </html>

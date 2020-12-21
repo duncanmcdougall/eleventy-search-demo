@@ -1,0 +1,140 @@
+body {
+	background: #282a36;
+	color: #fff;
+}
+a {
+	color: #ffd479;
+	text-decoration: none;
+	&:hover {
+		color: #fff;
+		border-bottom: 2px solid #ffd479;
+	}
+}
+.container {
+	width: 100%;
+	margin: 2rem auto;
+	@media (min-width: 1200px) {
+		max-width: 900px;
+	}
+}
+.site-footer {
+	margin-top: 2rem;
+	padding: 1rem 0;
+}
+
+.nav-search {
+	display: block;
+	background-image: linear-gradient(to right, #3d4251, #3b3f4c, #393d46, #373a41, #35373c);
+	width: 100%;
+	position: relative;
+	form {
+		display: flex;
+	}
+	.nav-search__input {
+		border: 0;
+		background: transparent;
+		color: #ddd;
+		font-size: 1.05rem;
+		padding: 0.65rem 0.5rem;
+		width: 100%;
+		&:focus {
+			outline: none;
+			border: 0;
+		}
+	}
+
+	#nav-search__result-container {
+		position: absolute;
+		max-height: 80vh;
+		overflow: auto;
+		width: 100%;
+		background: $c-bg-nav;
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+		padding: 0;
+		filter: drop-shadow(2px 4px 6px black);
+
+		@media (max-width: $grid-md - 1px) {
+			position: fixed;
+			left: 0;
+			right: 0;
+			border-radius: 0;
+		}
+
+		ul#nav-search__ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			li {
+				display: flex;
+				padding: 10px;
+				align-items: center;
+				justify-content: space-between;
+				overflow: hidden;
+				.item__icon {
+					width: 20px;
+				}
+				.item__content {
+					padding: 0 10px;
+					width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					h3 {
+						margin: 0;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						a {
+							color: #efb232;
+							white-space: inherit;
+							padding: 0;
+							text-align: left;
+							font-weight: normal;
+							font-size: $font-size;
+							line-height: 1.5;
+							margin: 0;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: block;
+							&:hover {
+								border-bottom: none;
+								color: $c-blue;
+							}
+						}
+					}
+					p {
+						text-align: left;
+						margin: 0;
+						line-height: 1.5;
+						font-size: 0.95rem;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+				.enter {
+					width: 20px;
+					display: none;
+				}
+				&.selected {
+					background: $c-background;
+					.enter {
+						display: block;
+					}
+				}
+			}
+			mark {
+				background: none;
+				color: inherit;
+				box-shadow: inset 0 -3px 0 0 #fff;
+			}
+		}
+		#nav-search__no-result {
+			padding: 0 10px;
+			p {
+				text-align: left;
+			}
+		}
+	}
+}

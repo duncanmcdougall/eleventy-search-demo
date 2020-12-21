@@ -1,21 +1,42 @@
 {% extends 'layout.njk' %}
-{% set title = "Eleventy + Elasticlunr Search Demo" %}
+{% set title = "11ty + ElasticlunrJS" %}
 {% block content %}
-  <p>The demo searches the title, excerpt and genres of the <a href="https://www.themoviedb.org/movie/top-rated" target="_blank">The Movie Database Top 100</a>.</p>
-  <p>
-    <a href="https://github.com/duncanmcdougall/eleventy-search-demo">GitHub repo</a>
-  </p>
-  <div class="field">
-    <label for="searchField">Search</label>
-    <input type="search" placeholder="Search..." id="searchField">
-  </div>
-  <ol id="searchResults"></ol>
-  <div id="noResultsFound" style="display: none">
-    <p>No results found.</p>
-  </div>
-  <script
+
+	<div id="nav-search" class="nav-search">
+		<form>
+			<input id="nav-search__input"
+							 class="nav-search__input"
+							 type="search"
+							 onfocusin="inFocus(this)"
+							 placeholder='search notes (type "/" to focus &#38; "ESC" to lose)'
+							 aria-label='search notes (type "/" to focus &#38; "ESC" to lose)'>
+		</form>
+		<div id="nav-search__result-container" style="display: none;">
+			<ul id="nav-search__ul"></ul>
+			<div id="nav-search__no-result" style="display: none;">
+				<p>No results found.</p>
+			</div>
+		</div>
+	</div>
+
+	<p>The demo searches the title, excerpt and genres of the <a href="https://www.themoviedb.org/movie/top-rated" target="_blank">The Movie Database Top 100</a>.</p>
+	<p>
+		<a href="https://github.com/duncanmcdougall/eleventy-search-demo">GitHub repo</a>
+	</p>
+	<div class="field">
+		<label for="searchField">Search</label>
+		<input type="search" placeholder="Search..." id="searchField">
+	</div>
+	<ol id="searchResults"></ol>
+	<div id="noResultsFound" style="display: none">
+		<p>No results found.</p>
+	</div>
+
+	<script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"
 ></script>
-  <script type="text/javascript" src="/js/search.js"></script>
+
+	<script type="text/javascript" src="/js/search.js"></script>
+	<script type="text/javascript" src="/js/search_custom.js"></script>
 {% endblock %}

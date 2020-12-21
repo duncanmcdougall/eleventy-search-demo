@@ -1,0 +1,21 @@
+body {
+  background: #282a36;
+  color: #fff; }
+
+a {
+  color: #ffd479;
+  text-decoration: none; }
+  a:hover {
+    color: #fff;
+    border-bottom: 2px solid #ffd479; }
+
+.container {
+  width: 100%;
+  margin: 2rem auto; }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 900px; } }
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1rem 0; }

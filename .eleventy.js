@@ -1,7 +1,9 @@
 const searchFilter = require("./src/filters/searchFilter");
 
 module.exports = function(config) {
-  config.addPassthroughCopy("src/js");
+	config.addPassthroughCopy("src/js");
+	config.addPassthroughCopy("src/css");
+	config.addPassthroughCopy("src/img");
 
   config.addFilter("search", searchFilter);
 
