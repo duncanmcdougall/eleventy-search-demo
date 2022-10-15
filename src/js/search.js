@@ -11,7 +11,7 @@
     const noResultsEl = document.getElementById("noResultsFound");
 
     resEl.innerHTML = "";
-    if (results) {
+    if (results.length !== 0 || e.target.value === "") {
       noResultsEl.style.display = "none";
       results.map((r) => {
         const { id, title, description } = r.doc;
